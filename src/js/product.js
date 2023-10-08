@@ -8,10 +8,14 @@ productDetails(productId, ".product-detail");
 import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 import { findProductById } from "./productData.mjs";
 
+const cartIcon = document.querySelector(".cart svg");
+
 function addProductToCart(product) {
   const contents = getLocalStorage("so-cart") || [];
   contents.push(product);
   setLocalStorage("so-cart", contents);
+  cartIcon.style.setProperty('animation-name', 'cartAnimation');
+  cartIcon.style.setProperty('animation-duration', '3s');
 }
 // add to cart button event handler
 async function addToCartHandler(e) {
