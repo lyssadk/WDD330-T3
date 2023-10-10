@@ -106,10 +106,15 @@ button {
 .cart svg {
   width: 25px;
 }
+
+.animateCart {
+  animation: cartAnimation 2s;
+}
+
 @keyframes cartAnimation {
-  from {width: 25px;}
-  to {width: 50px;}
-  to {width: 25px;}
+  0% {width: 25px;}
+  50% {width: 50px;}
+  100% {width: 25px;}
 }
 .cart:hover svg {
   fill: gray;

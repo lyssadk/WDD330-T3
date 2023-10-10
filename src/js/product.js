@@ -14,8 +14,7 @@ function addProductToCart(product) {
   const contents = getLocalStorage("so-cart") || [];
   contents.push(product);
   setLocalStorage("so-cart", contents);
-  cartIcon.style.setProperty('animation-name', 'cartAnimation');
-  cartIcon.style.setProperty('animation-duration', '3s');
+  cartIcon.classList.add("animateCart");
 }
 // add to cart button event handler
 async function addToCartHandler(e) {
