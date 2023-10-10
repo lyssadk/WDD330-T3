@@ -1,7 +1,10 @@
 import { findProductById } from "./productData.mjs";
 import { setLocalStorage } from "./utils.mjs";
+import { getLocalStorage } from "./utils.mjs";
+// import { cartIcon } from "./product.js";
 
 let product = {};
+const cartIcon = document.querySelector(".cart svg");
 
 export default async function productDetails(productId, selector) {
   // get the details for the current product. findProductById will return a promise! use await or .then() to process it
@@ -13,7 +16,11 @@ export default async function productDetails(productId, selector) {
   document.getElementById("addToCart").addEventListener("click", addToCart);
 }
 function addToCart() {
-  setLocalStorage("so-cart", product);
+  // setLocalStorage("so-cart", product);
+  const contents = getLocalStorage("so-cart") || [];
+  contents.push(product);
+  setLocalStorage("so-cart", contents);
+  cartIcon.classList.add("animateCart");
 }
 
 function productDetailsTemplate(product) {
