@@ -1,6 +1,5 @@
 
 import { findProductById } from "./productData.mjs";
-import productDetails from "./productDetails.mjs";
 import { getLocalStorage, setLocalStorage} from "./utils.mjs";
 
 function renderCartContents() {
@@ -24,7 +23,7 @@ function cartItemTemplate(item) {
   <p class="cart-card__color">${item.Colors[0].ColorName}</p>
   <p class="cart-card__quantity">qty: ${item.quantity}</p>
   <p class="cart-card__price">$${item.FinalPrice}</p>
-  <p class="remove" data-ID="${item.Id}">X </p>
+  <button class="remove" data-ID="${item.Id}">X </button>
 </li>`;
   
   return newItem;
@@ -41,6 +40,7 @@ function removeProductFromCart(product){
     product.quantity == prQt;
   }
   else{
+    //remove from contents the product if it goes to 0
     setLocalStorage("so-cart", contents)
   }
   renderCartContents();
