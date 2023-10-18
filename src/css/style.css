@@ -164,6 +164,13 @@ button {
 .card__name {
   font-size: 1em;
 }
+
+.remove {
+  padding:5px;
+  width: 50px;
+  background-color: #f0a868;
+  color:#525b0f;
+}
 /* End product list card */
 
 .product-detail {
@@ -175,6 +182,7 @@ button {
 .product-detail img {
   width: 100%;
 }
+
 
 /* Start cart list card styles */
 .cart-card {

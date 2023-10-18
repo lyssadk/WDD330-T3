@@ -18,8 +18,17 @@ export default async function productDetails(productId, selector) {
 function addToCart() {
   // setLocalStorage("so-cart", product);
   const contents = getLocalStorage("so-cart") || [];
-  contents.push(product);
-  setLocalStorage("so-cart", contents);
+  const item = contents.find((compare)=> compare.Id == product.Id)
+  if(item){
+    item.quantity++;
+    console.log(item.quantity);
+    setLocalStorage("so-cart", contents);
+  }
+  else{
+    product.quantity = 1;
+    contents.push(product);
+    setLocalStorage("so-cart", contents);
+  }
   cartIcon.classList.add("animateCart");
 }
 
