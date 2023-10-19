@@ -5,6 +5,7 @@
     export let category;
   
     let promise = getData(category);
+
   </script>
   
   <h2>Top Products</h2>
