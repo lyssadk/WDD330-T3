@@ -1,4 +1,5 @@
 
+import { get } from "svelte/store";
 import { findProductById } from "./productData.mjs";
 import { getLocalStorage, setLocalStorage} from "./utils.mjs";
 
@@ -6,8 +7,28 @@ function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
   document.querySelector(".product-list").innerHTML = htmlItems.join("");
+  cartTotal();
 }
 
+function cartTotal(){
+  const cartPrices = []
+  const storageList = getLocalStorage("so-cart");
+  storageList.forEach((local) => {
+      if (local.quantity < 0){
+      cartPrices.push(local.FinalPrice)
+  }
+    else{
+        cartPrices.push(local.quantity * local.FinalPrice);
+    }
+  });
+
+  
+  document.querySelector(".cart-total").innerHTML = "Total: $" + cartPrices.reduce(cartTotalReduce);
+}
+
+function cartTotalReduce(total, num){
+    return total + num;
+}
 
 function cartItemTemplate(item) {
   const newItem = `<li class="cart-card divider">
@@ -48,7 +69,7 @@ function removeProductFromCart(product){
 
 
 async function removeCartHandler(e){
-  const product = await findProductById(e.target.dataset.id);
+  const product = await findProductById(e.target.dataset.Id);
   removeProductFromCart(product);
 }
 

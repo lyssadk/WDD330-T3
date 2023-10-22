@@ -32,20 +32,20 @@ function addToCart() {
   cartIcon.classList.add("animateCart");
 }
 
-function productDetailsTemplate(product) {
-  return `<h3>${product.Brand.Name}</h3>
-  <h2 class="divider">${product.NameWithoutBrand}</h2>
+function productDetailsTemplate(product3) {
+  return `<h3>${product3.Brand.Name}</h3>
+  <h2 class="divider">${product3.NameWithoutBrand}</h2>
   <img
     class="divider"
-    src="${product.Image}"
-    alt="${product.Name}"
+    src="${product3.Image}"
+    alt="${product3.Name}"
   />
-  <p class="product-card__price">$${product.FinalPrice}</p>
-  <p class="product__color">${product.Colors[0].ColorName}</p>
+  <p class="product-card__price">$${product3.FinalPrice}</p>
+  <p class="product__color">${product3.Colors[0].ColorName}</p>
   <p class="product__description">
-  ${product.DescriptionHtmlSimple}
+  ${product3.DescriptionHtmlSimple}
   </p>
   <div class="product-detail__add">
-    <button id="addToCart" data-id="${product.Id}">Add to Cart</button>
+    <button id="addToCart" data-id="${product3.Id}">Add to Cart</button>
   </div>`;
 }
