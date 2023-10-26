@@ -1,5 +1,6 @@
 import MainHeader from "./components/MainHeader.svelte"
 import MainFooter from "./components/MainFooter.svelte"
+import CheckOut from "./components/CheckOut.svelte"
 
 // wrapper for querySelector...returns matching element
 export function qs(selector, parent = document) {
@@ -42,3 +43,9 @@ export function loadHeaderFooter() {
   new MainFooter({
     target: document.querySelector("#main-footer"),
   });}
+
+export function checkout(){
+  new CheckOut({
+     target: document.querySelector()
+  })
+}
