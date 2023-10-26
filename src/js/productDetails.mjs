@@ -1,6 +1,6 @@
 import { findProductById } from "./productData.mjs";
-import { setLocalStorage } from "./utils.mjs";
-import { getLocalStorage } from "./utils.mjs";
+import { cartCount } from "./stores.mjs";
+import { setLocalStorage, getLocalStorage } from "./utils.mjs";
 // import { cartIcon } from "./product.js";
 
 let product = {};
@@ -16,8 +16,10 @@ export default async function productDetails(productId, selector) {
   document.getElementById("addToCart").addEventListener("click", addToCart);
 }
 function addToCart() {
-  // setLocalStorage("so-cart", product);
-  const contents = getLocalStorage("so-cart") || [];
+  let contents = getLocalStorage("so-cart") || [];
+  if (!contents) {
+    contents = [];
+  }
   contents.push(product);
   setLocalStorage("so-cart", contents);
   cartIcon.classList.add("animateCart");
@@ -28,7 +30,7 @@ function productDetailsTemplate(product) {
   <h2 class="divider">${product.NameWithoutBrand}</h2>
   <img
     class="divider"
-    src="${product.Image}"
+    src="${product.Image.PrimaryMedium}"
     alt="${product.Name}"
   />
   <p class="product-card__price">$${product.FinalPrice}</p>
