@@ -59,7 +59,7 @@ function removeProductFromCart(product){
   const contents = getLocalStorage("so-cart") || [];
   //find the specific product because filtered contents just returms 
   //array.prototype.find() product id== for the callback
-  const itemToRemove = contents.find((item) => item.Id = product.Id)
+  const itemToRemove = contents.find((item) => item.Id == product.Id)
   console.log(itemToRemove);
 
     if (itemToRemove.quantity >= 1){
