@@ -230,3 +230,14 @@ footer {
   font-size: var(--small-font);
   padding: 1em;
 }
+
+#icons {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+#icons div {
+  width: 200px;
+}

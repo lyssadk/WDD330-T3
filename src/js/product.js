@@ -1,6 +1,9 @@
 
 import { getParam } from "./utils.mjs";
 import productDetails from "./productDetails.mjs";
+import { loadHeaderFooter } from "./utils.mjs";
+
+loadHeaderFooter();
 
 const productId = getParam("product");
 productDetails(productId, ".product-detail");
@@ -22,16 +25,6 @@ async function addToCartHandler(e) {
   const product = await findProductById(e.target.dataset.id);
   addProductToCart(product);
 }
-
-// add listener to Add to Cart button
-
-// document.addEventListener("DOMContentLoaded", function() {
-//   // Add listener to Add to Cart button
-//   const addToCartButton = document.getElementById("addToCart");
-//   if (addToCartButton) {
-//     addToCartButton.addEventListener("click", addToCartHandler);
-//   }
-// });
 
 document
   .getElementById("addToCart")

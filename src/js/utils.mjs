@@ -31,14 +31,14 @@ export function getParam(param) {
   return urlParams.get(param);
 }
 
-
 export function getCartCount() {
   const count = getLocalStorage("so-cart")?.length ?? 0;
   return count;
 }
 export function loadHeaderFooter() {
   new MainHeader({
-    target: document.querySelector("#main-header")
+    target: document.querySelector("#main-header"),
+    props: { cartCount: getCartCount},
   });
   new MainFooter({
     target: document.querySelector("#main-footer"),
