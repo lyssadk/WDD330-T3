@@ -46,6 +46,6 @@ export function loadHeaderFooter() {
 
 export function checkout(){
   new CheckOut({
-     target: document.querySelector()
-  })
+     target: document.querySelector("#checkout"),
+  });
 }

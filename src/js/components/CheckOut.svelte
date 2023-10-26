@@ -1,5 +1,14 @@
 <script>
     let tax = 0;
+    let shipping = 0;
+    let total = 0;
+
+    function calculateItemSummary(){
+
+    }
+    function init(){
+      
+    }
 </script>
 
 <form id="shipping">
@@ -41,15 +50,15 @@
     </div>
     <div>
       <p>Shipping Estimate: </p>
-      <p id="shipping"></p>
+      <p>${shipping}</p>
     </div>
     <div>
       <p>Tax: </p>
-      <p id="tax"></p>
+      <p>${tax}</p>
     </div>
     <div>
       <p>Order Total: </p>
-      <p id="order-total"></p>
+      <p>${total}</p>
     </div>
   </fieldset>
   <button type="submit">Checkout</button>
