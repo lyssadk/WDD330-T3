@@ -54,22 +54,39 @@ function removeProductFromCart(product){
   // get index of it (use splice) use array. indexOf in a foreach loop, use index find and findindex
   // can also filter the 
   // cart item and cart list component
-  const contents = getLocalStorage("so-cart").filter((filter)=> filter.Id != product.Id);
-  const filteredContents = getLocalStorage("so-cart").filter((compare)=> compare.quantity > 1);
-  if (filteredContents){
-    const prQt = product.quantity - 1;
-    product.quantity == prQt;
+  const contents2 = getLocalStorage("so-cart").filter((filter)=> filter.Id != product.Id);
+
+  const contents = getLocalStorage("so-cart") || [];
+  //find the specific product because filtered contents just returms 
+  //array.prototype.find() product id== for the callback
+  const itemToRemove = contents.find((item) => item.Id = product.Id)
+  console.log(itemToRemove);
+
+    if (itemToRemove.quantity >= 1){
+    itemToRemove.quantity--;
+    setLocalStorage("so-cart", contents2)
+
+      if(itemToRemove.quantity == 0){
+        contents.splice(itemToRemove, 1);
+        setLocalStorage("so-cart", contents)
+      }
+    
+
+    else{
+      //remove from contents the product if it goes to 0
+      setLocalStorage("so-cart", contents)
+    }
   }
-  else{
-    //remove from contents the product if it goes to 0
-    setLocalStorage("so-cart", contents)
-  }
+    else{
+      //remove from contents the product if it goes to 0
+      setLocalStorage("so-cart", contents)
+    }
   renderCartContents();
 }
 
 
 async function removeCartHandler(e){
-  const product = await findProductById(e.target.dataset.Id);
+  const product = await findProductById(e.target.dataset.id);
   removeProductFromCart(product);
 }
 
