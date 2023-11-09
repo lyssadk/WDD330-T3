@@ -220,6 +220,30 @@ button {
   grid-column: 3;
 }
 
+legend{
+  background-color: var(--secondary-color);
+  padding: 10px;
+  color: white;
+}
+
+#newsletter input{
+  margin: 10px;
+}
+
+#newsletter{
+  padding-bottom: 2em;
+  width:50vw;
+}
+#newsletter fieldset{
+  background-color: #f0a868;
+}
+#newsletter button{
+  height: 3.4vw;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
