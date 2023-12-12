@@ -2,12 +2,19 @@
 import { get } from "svelte/store";
 import { findProductById } from "./productData.mjs";
 import { getLocalStorage, setLocalStorage} from "./utils.mjs";
+import { loadHeaderFooter } from "./utils.mjs";
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
-  const htmlItems = cartItems.map((item) => cartItemTemplate(item));
-  document.querySelector(".product-list").innerHTML = htmlItems.join("");
-  cartTotal();
+
+  if (cartItems) {
+    const htmlItems = cartItems.map((item) => cartItemTemplate(item));
+    document.querySelector(".product-list").innerHTML = htmlItems.join("");
+    cartTotal();
+  } else {
+    document.querySelector(".product-list").innerHTML = "Cart is empty";
+  }
+  
 }
 
 function cartTotal(){
@@ -93,4 +100,6 @@ async function removeCartHandler(e){
 
 // need to add an event listener to each thing in the cart, they should have their own ID
 document.querySelector(".product-list").addEventListener("click", removeCartHandler)
+loadHeaderFooter();
 renderCartContents();
+

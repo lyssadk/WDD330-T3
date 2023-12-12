@@ -1,6 +1,9 @@
 
 import { getParam } from "./utils.mjs";
 import productDetails from "./productDetails.mjs";
+import { loadHeaderFooter } from "./utils.mjs";
+
+loadHeaderFooter();
 
 const productId = getParam("product");
 productDetails(productId, ".product-detail");
@@ -36,15 +39,13 @@ productDetails(productId, ".product-detail");
 //     addToCartButton.addEventListener("click", addToCartHandler);
 //   }
 // });
+// async function addToCartHandler(e) {
+//   const product = await findProductById(e.target.dataset.id);
+//   addProductToCart(product);
+// }
 
 // document
 //   .getElementById("addToCart")
 //   .addEventListener("click", addToCartHandler);
-// add listeneer to Remove from cart button
-// document
-//   .getElementsByID()
-//   .addEventListener("click", removeCartHandler)
-// add listener to Add to Cart button
-
 
 // get things from local storage in a string and put them into a array of objects, then display that. 

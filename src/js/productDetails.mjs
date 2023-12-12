@@ -1,6 +1,6 @@
 import { findProductById } from "./productData.mjs";
-import { setLocalStorage } from "./utils.mjs";
-import { getLocalStorage } from "./utils.mjs";
+import { cartCount } from "./stores.mjs";
+import { setLocalStorage, getLocalStorage } from "./utils.mjs";
 // import { cartIcon } from "./product.js";
 
 let product = {};
@@ -37,8 +37,8 @@ function productDetailsTemplate(product3) {
   <h2 class="divider">${product3.NameWithoutBrand}</h2>
   <img
     class="divider"
-    src="${product3.Image}"
-    alt="${product3.Name}"
+    src="${product.Image.PrimaryMedium}"
+    alt="${product.Name}"
   />
   <p class="product-card__price">$${product3.FinalPrice}</p>
   <p class="product__color">${product3.Colors[0].ColorName}</p>

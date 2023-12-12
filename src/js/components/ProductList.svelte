@@ -5,9 +5,10 @@
     export let category;
   
     let promise = getData(category);
+
   </script>
   
-  <h2>Top Products</h2>
+  <h2>Top Products: {category}</h2>
   {#await promise}
     <p>Loading</p>
   {:then data}
